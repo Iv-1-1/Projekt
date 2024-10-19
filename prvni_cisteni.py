@@ -47,9 +47,9 @@ seznam_projektu = seznam_projektu.drop(columns=["referent",
                                                 "Revize požadavek",
                                                 "Proj. dokumentace požadavek",
                                                 "Proj. dokumentace provedena"
-                                                ]) # Odstranili jsme, protože se to nenačítalo
+                                                ])
 
-seznam_projektu["Vykon"] = seznam_projektu["Vykon"].str.replace(" kWp", "").str.replace(",", ".")
+seznam_projektu["Vykon"] = seznam_projektu["Vykon"].str.replace(" kWp", "").str.replace("kWp", "").str.replace(",", ".").str.replace(" kWh", "").str.replace("kWh", "").str.replace(" kwp", "")
 
 seznam_projektu["Zdroj"] = seznam_projektu["Zdroj"].fillna("")
 # seznam_projektu[seznam_projektu["Zdroj"].str.contains("mail|web|tel")]
